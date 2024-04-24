@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/nanny-services/static/css/main.7cda0caf.css",
-    "main.js": "/nanny-services/static/js/main.6e36164f.js",
+    "main.js": "/nanny-services/static/js/main.8805ee1f.js",
     "static/js/453.c8abddde.chunk.js": "/nanny-services/static/js/453.c8abddde.chunk.js",
-    "static/media/logo.svg": "/nanny-services/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/nanny-services/index.html",
     "main.7cda0caf.css.map": "/nanny-services/static/css/main.7cda0caf.css.map",
-    "main.6e36164f.js.map": "/nanny-services/static/js/main.6e36164f.js.map",
+    "main.8805ee1f.js.map": "/nanny-services/static/js/main.8805ee1f.js.map",
     "453.c8abddde.chunk.js.map": "/nanny-services/static/js/453.c8abddde.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.6e36164f.js"
+    "static/js/main.8805ee1f.js"
   ]
 }
