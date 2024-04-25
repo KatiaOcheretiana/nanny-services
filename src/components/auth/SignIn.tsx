@@ -1,47 +1,70 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import { auth } from "../../firebase";
+import { Field, Form, Formik } from "formik";
+import * as Yup from "yup";
+
+const SighInSchema = Yup.object().shape({
+  email: Yup.string()
+    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Example: test@gmail.com")
+    .email("Invalid email")
+    .required("Email is required"),
+  password: Yup.string()
+    .min(6, "Enter a valid Password")
+    .required("Password is required"),
+});
 
 export const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const logIn = (e: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(auth, email, password)
-      .then((user) => {
-        console.log(user);
-        setEmail("");
-        setError("");
-        setPassword("");
-      })
-      .catch((error) => {
-        console.error(error);
-        setError("couldn't find your account");
-      });
-  };
-
   return (
     <>
-      <form onSubmit={logIn}>
-        <h2>LOg In</h2>
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          password: "",
+        }}
+        validationSchema={SighInSchema}
+        onSubmit={(values) =>
+          signInWithEmailAndPassword(auth, values.email, values.password)
+            .then((user) => {
+              console.log(user);
 
-        <input
-          type="email"
-          placeholder="enter your email"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-        />
-        <input
-          type="password"
-          placeholder="enter your password"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-        />
-        <button>login</button>
-        {error && <p>{error}</p>}
-      </form>
+              setError("");
+            })
+            .catch((error) => {
+              console.error(error);
+              setError("couldn't find your account");
+            })
+        }
+      >
+        {({ errors, touched }) => (
+          <Form>
+            <label>
+              <Field
+                name="email"
+                type="email"
+                autoComplete="off"
+                placeholder="Email"
+              />
+              {errors.email && touched.email && <div>{errors.email}</div>}
+            </label>
+            <label>
+              <Field
+                name="password"
+                type="password"
+                autoComplete="off"
+                placeholder="Password"
+              />
+              {errors.password && touched.password && (
+                <div>{errors.password}</div>
+              )}
+            </label>
+            <button type="submit">Sign In</button>
+            {error && <p>{error}</p>}
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };

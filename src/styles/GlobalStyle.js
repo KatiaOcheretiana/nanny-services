@@ -8,6 +8,11 @@ html {
   overflow-x: hidden;
 }
 
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url(HelveticaNeue);
+}
+
 *,
 *::before,
 *::after {
@@ -45,7 +50,7 @@ img {
 
 body {
   margin: 0 ;
-   font-family: 'Roboto', sans-serif;
+   font-family: 'HelveticaNeue', sans-serif;
   color: black;
 
   -webkit-font-smoothing: antialiased;
