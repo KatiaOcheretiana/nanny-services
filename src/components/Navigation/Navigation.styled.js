@@ -62,7 +62,7 @@ export const BtnBox = styled.div`
 
 export const ServiceName = styled.h2`
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 117%;
   letter-spacing: -0.02em;
   color: ${globalColor.lightWhite};
@@ -126,4 +126,14 @@ export const RegisterBtn = styled.button`
   @media screen and (min-width: 768px) {
     padding: 14px 40px;
   }
+`;
+
+export const BurgerBtn = styled.svg`
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: ${globalColor.white};
+  stroke-width: 1.5px;
+  display: block;
+  margin-right: 16px;
 `;

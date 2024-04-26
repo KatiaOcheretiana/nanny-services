@@ -19,7 +19,7 @@ export const PageWrapper = styled.section`
   grid-template-rows: 1fr 1fr;
   height: 600px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 370px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     height: 100%;
@@ -27,7 +27,7 @@ export const PageWrapper = styled.section`
 `;
 
 export const BoxWrapper = styled.div`
-  margin: 150px 28px 100px 26px;
+  margin: 190px 28px 100px 26px;
   @media screen and (min-width: 768px) {
     margin: 200px 38px 162px 55px;
   }
@@ -99,12 +99,15 @@ export const LinkBtn = styled.button`
 
 export const BgImage = styled.div`
   display: none;
-  @media screen and (min-width: 768px) {
+
+  @media screen and (min-width: 370px) {
     display: block;
     background-color: ${globalColor.lightWhite};
     background-repeat: no-repeat;
 
     width: 100%;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 
     background-image: image-set(url(${bg_1x}) 1x, url(${bg_2x}) 2x);
     background-size: cover;

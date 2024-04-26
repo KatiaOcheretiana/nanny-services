@@ -11,7 +11,15 @@ import {
 } from "./Home.styled";
 import { NavigationGest } from "../../components/Navigation/NavigationGuest";
 
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
+
+  const getStarted = () => {
+    navigate("/nannies");
+  };
+
   return (
     <Container>
       <NavigationGest />
@@ -22,7 +30,7 @@ const Home = () => {
             <Text>Find Babysitters Online for All Occasions</Text>
           </ContentWrapper>
 
-          <LinkBtn>
+          <LinkBtn onClick={getStarted}>
             <p>Get started</p>
             <svg height="17" width="15">
               <use href={sprite + "#icon-arrow"} />
