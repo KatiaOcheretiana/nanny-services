@@ -27,8 +27,6 @@ const SighInSchema = Yup.object().shape({
 });
 
 export const SignIn = () => {
-  // const [error, setError] = useState("");
-
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
 
@@ -50,12 +48,9 @@ export const SignIn = () => {
           signInWithEmailAndPassword(auth, values.email, values.password)
             .then((user) => {
               console.log(user);
-
-              // setError("");
             })
             .catch((error) => {
               console.error(error);
-              // setError("couldn't find your account");
             })
         }
       >

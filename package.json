@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://KatiaOcheretiana.github.io/nanny-services/",
   "dependencies": {
+    "@tanstack/react-query": "^5.32.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
@@ -12,6 +13,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-modal": "^3.16.3",
+    "axios": "^1.6.8",
     "firebase": "^10.11.0",
     "formik": "^2.4.6",
     "modern-normalize": "^2.0.0",
@@ -50,5 +52,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.28.11"
   }
 }

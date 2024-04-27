@@ -4,6 +4,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +21,9 @@ root.render(
   <>
     {/* <React.StrictMode> */}
     <BrowserRouter basename="/nanny-services">
-      <App />
+      <QueryClientProvider client={queryClient}>
+        <App />
+      </QueryClientProvider>
     </BrowserRouter>
     <GlobalStyle />
 
