@@ -1,15 +1,19 @@
 import { Suspense } from "react";
-import { Outlet } from "react-router-dom";
-// import { NavigationGest } from "./components/Navigation/NavigationGuest";
+import { Toaster } from "react-hot-toast";
+import { Outlet, useLocation } from "react-router-dom";
+import { NavigatioHomePage } from "./components/Navigation/NavigatioHomePage";
 
 export const Layout = () => {
+  const location = useLocation();
+
   return (
     <>
-      {/* <NavigationGest /> */}
+      {location.pathname === "/" && <NavigatioHomePage />}
+
       <Suspense fallback={<p>loading///</p>}>
         <Outlet />
       </Suspense>
-      {/* <Toaster top="100" position="top-right" reverseOrder={false} /> */}
+      <Toaster position="top-right" reverseOrder={false} />
     </>
   );
 };

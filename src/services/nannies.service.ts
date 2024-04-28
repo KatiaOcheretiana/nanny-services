@@ -1,5 +1,12 @@
-import { database } from "../firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  updateProfile,
+} from "firebase/auth";
+import { auth, database } from "../firebase";
 import { onValue, ref } from "firebase/database";
+import { UserType } from "../components/Auth/SignUp/SignUp";
 
 class NanniesService {
   async getNanniesData() {
@@ -16,6 +23,26 @@ class NanniesService {
         }
       );
     });
+  }
+
+  async register(values: UserType) {
+    await createUserWithEmailAndPassword(
+      auth,
+      values.email,
+      values.password
+    ).then(() => {
+      if (auth.currentUser !== null) {
+        updateProfile(auth.currentUser, { displayName: values.name });
+      }
+    });
+  }
+
+  async logIn(values: UserType) {
+    await signInWithEmailAndPassword(auth, values.email, values.password);
+  }
+
+  async logOut() {
+    signOut(auth);
   }
 }
 

@@ -6,7 +6,7 @@ import {
   BurgerBtn,
   LinkBox,
   LogInBtn,
-  NavWrapper,
+  NavWrapperHomePage,
   NavigationLink,
   RegisterBtn,
   ServiceName,
@@ -17,8 +17,10 @@ import MobileMenu from "./MobileMenu.jsx/MobileMenu";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { SignUp } from "../Auth/SignUp/SignUp";
 import { SignIn } from "../Auth/SignIn/SignIn";
+import { auth } from "../../firebase";
+import { AuthDetails } from "../Auth/AuthDetail";
 
-export const NavigationGest = () => {
+export const NavigatioHomePage = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -49,14 +51,9 @@ export const NavigationGest = () => {
     document.body.style.overflow = "visible";
   };
 
-  //   const isLoggedIn = useSelector(selectIsLoggedIn);
-
-  //   const user = useSelector(selectUser);
-  // const userMetrics = user?.userMetrics;
-
   return (
     <>
-      <NavWrapper>
+      <NavWrapperHomePage>
         <Box>
           <div>
             <ServiceName>Nanny.Services</ServiceName>
@@ -67,12 +64,20 @@ export const NavigationGest = () => {
                 <NavigationLink to="/">Home</NavigationLink>
                 <NavigationLink to="/nannies">Nannies</NavigationLink>
               </LinkBox>
-              <BtnBox>
-                <LogInBtn onClick={handleOpenLogInModal}>Log In</LogInBtn>
-                <RegisterBtn onClick={handleOpenRegisterModal}>
-                  Registration
-                </RegisterBtn>
-              </BtnBox>
+              {auth.currentUser ? (
+                // <button type="submit" onClick={() => signOut(auth)}>
+                //   log out {auth.currentUser.displayName}{" "}
+                // </button>
+
+                <AuthDetails />
+              ) : (
+                <BtnBox>
+                  <LogInBtn onClick={handleOpenLogInModal}>Log In</LogInBtn>
+                  <RegisterBtn onClick={handleOpenRegisterModal}>
+                    Registration
+                  </RegisterBtn>
+                </BtnBox>
+              )}
             </BoxFeatures>
           </MediaQuery>
 
@@ -91,7 +96,7 @@ export const NavigationGest = () => {
             />
           )}
         </MediaQuery>
-      </NavWrapper>
+      </NavWrapperHomePage>
       {isRegisterModalOpen && (
         <ModalWindow
           isOpen={isRegisterModalOpen}
@@ -108,7 +113,7 @@ export const NavigationGest = () => {
           onRequestClose={handleCloseLogInModal}
           heightParameter="489px"
         >
-          <SignIn />
+          <SignIn onRequestClose={handleCloseLogInModal} />
         </ModalWindow>
       )}
     </>

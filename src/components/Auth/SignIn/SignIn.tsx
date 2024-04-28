@@ -1,8 +1,6 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
-import { auth } from "../../../firebase";
 import { Formik } from "formik";
-import * as Yup from "yup";
+
 import {
   Button,
   Container,
@@ -15,20 +13,29 @@ import {
   Title,
 } from "../Auth.styled";
 import sprite from "../../../images/sprite.svg";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
+import nanniesService from "../../../services/nannies.service";
+import { SighInSchema } from "../schema";
 
-const SighInSchema = Yup.object().shape({
-  email: Yup.string()
-    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Example: test@gmail.com")
-    .email("Invalid email")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Enter a valid Password")
-    .required("Password is required"),
-});
+type SignInPropsType = {
+  onRequestClose: () => void;
+};
 
-export const SignIn = () => {
+export const SignIn = ({ onRequestClose }: SignInPropsType) => {
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
+
+  const mutation = useMutation({
+    mutationFn: nanniesService.logIn,
+    onSuccess: () => {
+      toast.success("Welcome!");
+      onRequestClose();
+    },
+    onError: () => {
+      toast.error("Your email or password is wrong! Please try again.");
+    },
+  });
 
   return (
     <Container style={{ height: "489px" }}>
@@ -44,15 +51,7 @@ export const SignIn = () => {
           password: "",
         }}
         validationSchema={SighInSchema}
-        onSubmit={(values) =>
-          signInWithEmailAndPassword(auth, values.email, values.password)
-            .then((user) => {
-              console.log(user);
-            })
-            .catch((error) => {
-              console.error(error);
-            })
-        }
+        onSubmit={(values) => mutation.mutate(values)}
       >
         {({ errors, touched }) => (
           <FormFiels>

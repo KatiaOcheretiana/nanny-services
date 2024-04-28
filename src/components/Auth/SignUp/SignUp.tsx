@@ -1,7 +1,4 @@
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../../../firebase";
 import { Formik } from "formik";
-import * as Yup from "yup";
 import {
   Button,
   Container,
@@ -15,17 +12,16 @@ import {
 } from "../Auth.styled";
 import { useState } from "react";
 import sprite from "../../../images/sprite.svg";
+import { useMutation } from "@tanstack/react-query";
+import nanniesService from "../../../services/nannies.service";
+import toast from "react-hot-toast";
+import { SignupSchema } from "../schema";
 
-const SignupSchema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
-  email: Yup.string()
-    .matches(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/, "Example: test@gmail.com")
-    .email("Invalid email")
-    .required("Email is required"),
-  password: Yup.string()
-    .min(6, "Enter a valid Password")
-    .required("Password is required"),
-});
+export type UserType = {
+  name?: string;
+  email: string;
+  password: string;
+};
 
 type SignUpPropsType = {
   onRequestClose: () => void;
@@ -34,6 +30,14 @@ type SignUpPropsType = {
 export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
+
+  const mutation = useMutation({
+    mutationFn: nanniesService.register,
+    onSuccess: () => {
+      onRequestClose();
+      toast.success("Successfully registered! Welcome!");
+    },
+  });
 
   return (
     <Container>
@@ -49,18 +53,7 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
           password: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values) => {
-          createUserWithEmailAndPassword(auth, values.email, values.password)
-            .then(() => {
-              if (auth.currentUser !== null) {
-                updateProfile(auth.currentUser, { displayName: values.name });
-                onRequestClose();
-              }
-            })
-            .catch((error) => {
-              console.error("Error creating user:", error);
-            });
-        }}
+        onSubmit={(values) => mutation.mutate(values)}
       >
         {({ errors, touched }) => (
           <FormFiels>

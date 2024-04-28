@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { globalColor } from "../../styles/root";
 import { NavLink } from "react-router-dom";
 
-export const NavWrapper = styled.div`
+export const NavWrapperHomePage = styled.div`
   width: 97.3%;
   position: fixed;
+  top: 16px;
 
   &::after {
     position: absolute;
@@ -15,6 +16,13 @@ export const NavWrapper = styled.div`
     width: 100%;
     bottom: 0px;
     background-color: rgba(251, 251, 251, 0.4);
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 32px;
+  }
+
+  @media (min-width: 1440px) {
   }
 `;
 

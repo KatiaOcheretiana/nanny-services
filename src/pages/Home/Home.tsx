@@ -9,7 +9,7 @@ import {
   Text,
   Title,
 } from "./Home.styled";
-import { NavigationGest } from "../../components/Navigation/NavigationGuest";
+import { NavigatioHomePage } from "../../components/Navigation/NavigatioHomePage";
 
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const Home = () => {
 
   return (
     <Container>
-      <NavigationGest />
+      {/* <NavigationGest /> */}
       <PageWrapper>
         <BoxWrapper>
           <ContentWrapper>

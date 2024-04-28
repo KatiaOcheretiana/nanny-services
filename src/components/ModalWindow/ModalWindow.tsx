@@ -1,7 +1,6 @@
 import { CloseModalBtn } from "./ModalWindow.styled";
 import sprite from "../../images/sprite.svg";
 import Modal from "react-modal";
-// import { useDispatch } from "react-redux";
 import { Styles } from "react-modal";
 
 type ModalWindowPropsType = {
