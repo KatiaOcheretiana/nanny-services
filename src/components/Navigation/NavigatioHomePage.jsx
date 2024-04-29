@@ -65,10 +65,6 @@ export const NavigatioHomePage = () => {
                 <NavigationLink to="/nannies">Nannies</NavigationLink>
               </LinkBox>
               {auth.currentUser ? (
-                // <button type="submit" onClick={() => signOut(auth)}>
-                //   log out {auth.currentUser.displayName}{" "}
-                // </button>
-
                 <AuthDetails />
               ) : (
                 <BtnBox>
