@@ -31,7 +31,8 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
 
-  const mutation = useMutation({
+  const { mutate } = useMutation({
+    mutationKey: ["register"],
     mutationFn: nanniesService.register,
     onSuccess: () => {
       onRequestClose();
@@ -53,7 +54,7 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
           password: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values) => mutation.mutate(values)}
+        onSubmit={(values) => mutate(values)}
       >
         {({ errors, touched }) => (
           <FormFiels>

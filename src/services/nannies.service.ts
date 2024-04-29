@@ -46,4 +46,6 @@ class NanniesService {
   }
 }
 
-export default new NanniesService();
+const nanniesService = new NanniesService();
+
+export default nanniesService;

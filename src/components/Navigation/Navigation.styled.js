@@ -3,7 +3,7 @@ import { globalColor } from "../../styles/root";
 import { NavLink } from "react-router-dom";
 
 export const NavWrapperHomePage = styled.div`
-  width: 97.3%;
+  width: 100%;
   position: fixed;
   top: 16px;
 
@@ -99,12 +99,11 @@ export const LogInBtn = styled.button`
   letter-spacing: -0.01em;
   color: ${globalColor.lightWhite};
 
-  &:hover,
-  &:focus {
+  &:hover {
     border: 1px solid ${globalColor.second};
   }
 
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
 
   @media screen and (min-width: 768px) {
     padding: 14px 39px;
@@ -123,13 +122,12 @@ export const RegisterBtn = styled.button`
   letter-spacing: -0.01em;
   color: ${globalColor.lightWhite};
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: ${globalColor.main};
     background-color: ${globalColor.lightWhite};
   }
 
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
 
   @media screen and (min-width: 768px) {
     padding: 14px 40px;

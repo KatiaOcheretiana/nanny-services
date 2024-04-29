@@ -62,32 +62,3 @@ const Nannies = () => {
 };
 
 export default Nannies;
-
-// <div>
-//   {nanniesData.map((nanny, index) => (
-//     <div key={index}>
-//       <p>{nanny.name}</p>{" "}
-//     </div>
-//   ))}
-// </div>
-
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const dbRef = ref(database, "nannies");
-//         onValue(dbRef, (snapshot) => {
-//           const data = snapshot.val();
-
-//           if (data) {
-//             setNanniesData(Object.values(data));
-//           } else {
-//             setNanniesData([]);
-//           }
-//         });
-//       } catch (error) {
-//         console.error("Error fetching data:", error);
-//       }
-//     };
-
-//     fetchData();
-//   }, []);

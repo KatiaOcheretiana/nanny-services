@@ -26,7 +26,8 @@ export const SignIn = ({ onRequestClose }: SignInPropsType) => {
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
 
-  const mutation = useMutation({
+  const { mutate } = useMutation({
+    mutationKey: ["login"],
     mutationFn: nanniesService.logIn,
     onSuccess: () => {
       toast.success("Welcome!");
@@ -51,7 +52,7 @@ export const SignIn = ({ onRequestClose }: SignInPropsType) => {
           password: "",
         }}
         validationSchema={SighInSchema}
-        onSubmit={(values) => mutation.mutate(values)}
+        onSubmit={(values) => mutate(values)}
       >
         {({ errors, touched }) => (
           <FormFiels>
