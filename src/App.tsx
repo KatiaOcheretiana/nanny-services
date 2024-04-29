@@ -1,8 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
 import { lazy, useEffect, useState } from "react";
-import { auth, getCurrentUser } from "./firebase";
-import { onAuthStateChanged } from "firebase/auth";
+import { getCurrentUser } from "./firebase";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
 const Nannies = lazy(() => import("./pages/Nannies/Nannies"));
