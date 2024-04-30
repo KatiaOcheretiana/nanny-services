@@ -6,11 +6,11 @@ import {
   CloseBtn,
   IconClose,
   MenuContainer,
-  NavBtn,
   NavContainer,
-  NavLinks,
 } from "./MobileMenu.styled";
-import { LogInBtn, NavigationLink, RegisterBtn } from "../Navigation.styled";
+
+import { NavCategories } from "../../NavCategories/NavCategories";
+import { AccountFeatures } from "../../Auth/AccountFeatures/AccountFeatures";
 
 type MobileMenuPropsType = {
   onClick: () => void;
@@ -23,13 +23,6 @@ const MobileMenu = ({
   openRegister,
   openLogIn,
 }: MobileMenuPropsType) => {
-  //   const dispatch = useDispatch();
-
-  //   const handleLogOut = () => {
-  //     dispatch(logOut());
-  //     onClick();
-  //   };
-
   const handleCloseClick = () => {
     onClick();
   };
@@ -71,16 +64,13 @@ const MobileMenu = ({
           </IconClose>
         </CloseBtn>
         <NavContainer>
-          <NavLinks>
-            <NavigationLink to="/">Home</NavigationLink>
-            <NavigationLink to="/nannies">Nannies</NavigationLink>
-          </NavLinks>
-          <NavBtn>
-            <LogInBtn onClick={handleLogInClick}>Log In</LogInBtn>
-            <RegisterBtn onClick={handleRegisterClick}>
-              Registration
-            </RegisterBtn>
-          </NavBtn>
+          <NavCategories styleDirection="column" />
+
+          <AccountFeatures
+            styleDirection="column"
+            handleOpenLogInModal={handleLogInClick}
+            handleOpenRegisterModal={handleRegisterClick}
+          />
         </NavContainer>
       </MenuContainer>
     </BackdropMenu>

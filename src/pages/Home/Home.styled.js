@@ -18,6 +18,7 @@ export const PageWrapper = styled.section`
   display: grid;
   grid-template-rows: 1fr 1fr;
   height: 600px;
+  position: relative;
 
   @media screen and (min-width: 370px) {
     grid-template-columns: 1fr 1fr;

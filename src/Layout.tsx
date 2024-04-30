@@ -1,14 +1,15 @@
 import { Suspense } from "react";
 import { Toaster } from "react-hot-toast";
 import { Outlet, useLocation } from "react-router-dom";
-import { NavigatioHomePage } from "./components/Navigation/NavigatioHomePage";
+import { Navigation } from "./components/Navigation/Navigation";
 
 export const Layout = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <>
-      {location.pathname === "/" && <NavigatioHomePage />}
+      {/* {location.pathname === "/" && */}
+      <Navigation />
 
       <Suspense fallback={<p>loading///</p>}>
         <Outlet />

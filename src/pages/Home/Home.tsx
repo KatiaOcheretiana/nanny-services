@@ -1,3 +1,4 @@
+import { HomeStatistics } from "../../components/HomeStatistics/HomeStatistics";
 import sprite from "../../images/sprite.svg";
 import {
   BgImage,
@@ -37,6 +38,7 @@ const Home = () => {
         </BoxWrapper>
 
         <BgImage></BgImage>
+        <HomeStatistics />
       </PageWrapper>
     </Container>
   );

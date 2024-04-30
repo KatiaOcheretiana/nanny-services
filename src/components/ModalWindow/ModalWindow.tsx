@@ -19,6 +19,7 @@ const ModalWindow = ({
   const customStyles: Styles = {
     overlay: {
       backgroundColor: "rgba(11, 11, 11, 0.6)",
+      zIndex: "1001",
     },
     content: {
       position: "absolute",

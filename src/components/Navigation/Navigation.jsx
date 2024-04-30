@@ -2,14 +2,8 @@ import { useState } from "react";
 import {
   Box,
   BoxFeatures,
-  BtnBox,
   BurgerBtn,
-  LinkBox,
-  LogInBtn,
   NavWrapperHomePage,
-  NavigationLink,
-  RegisterBtn,
-  ServiceName,
 } from "./Navigation.styled";
 import MediaQuery from "react-responsive";
 import sprite from "../../images/sprite.svg";
@@ -17,10 +11,12 @@ import MobileMenu from "./MobileMenu.jsx/MobileMenu";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { SignUp } from "../Auth/SignUp/SignUp";
 import { SignIn } from "../Auth/SignIn/SignIn";
-import { auth } from "../../firebase";
-import { AuthDetails } from "../Auth/AuthDetail";
+import { AccountFeatures } from "../Auth/AccountFeatures/AccountFeatures";
+import { NavCategories } from "../NavCategories/NavCategories";
+import { Logo } from "../Logo/Logo";
+import { useLocation } from "react-router-dom";
 
-export const NavigatioHomePage = () => {
+export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -51,29 +47,23 @@ export const NavigatioHomePage = () => {
     document.body.style.overflow = "visible";
   };
 
+  const location = useLocation();
+
+  const homePath = location.pathname === "/";
+
   return (
     <>
-      <NavWrapperHomePage>
-        <Box>
-          <div>
-            <ServiceName>Nanny.Services</ServiceName>
-          </div>
+      <NavWrapperHomePage homePath={homePath}>
+        <Box homePath={homePath}>
+          <Logo />
           <MediaQuery minWidth={1440}>
-            <BoxFeatures>
-              <LinkBox>
-                <NavigationLink to="/">Home</NavigationLink>
-                <NavigationLink to="/nannies">Nannies</NavigationLink>
-              </LinkBox>
-              {auth.currentUser ? (
-                <AuthDetails />
-              ) : (
-                <BtnBox>
-                  <LogInBtn onClick={handleOpenLogInModal}>Log In</LogInBtn>
-                  <RegisterBtn onClick={handleOpenRegisterModal}>
-                    Registration
-                  </RegisterBtn>
-                </BtnBox>
-              )}
+            <BoxFeatures homePath={homePath}>
+              <NavCategories />
+              <AccountFeatures
+                handleOpenLogInModal={handleOpenLogInModal}
+                handleOpenRegisterModal={handleOpenRegisterModal}
+                homePath={homePath}
+              />
             </BoxFeatures>
           </MediaQuery>
 

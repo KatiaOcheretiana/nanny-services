@@ -77,13 +77,7 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    /* width: 768px; */
-    padding: 0 32px;
-    margin: 120px auto;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding: 0 60px;
+    padding: 0 90px;
+    margin: 150px auto;
   }
 `;

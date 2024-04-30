@@ -11,6 +11,8 @@ export const CloseModalBtn = styled.svg`
   width: 26px;
   height: 26px;
 
+  cursor: pointer;
+
   &:hover,
   &:focus {
     stroke: ${globalColor.colorOrange};

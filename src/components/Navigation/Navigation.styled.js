@@ -1,29 +1,39 @@
 import styled from "styled-components";
 import { globalColor } from "../../styles/root";
-import { NavLink } from "react-router-dom";
 
 export const NavWrapperHomePage = styled.div`
-  width: 100%;
-  position: fixed;
-  top: 16px;
-
-  &::after {
-    position: absolute;
-    content: "";
-
-    height: 1px;
-    margin-right: 32px;
+  ${({ homePath }) =>
+    homePath
+      ? `
+    /* Styles for home page */
     width: 100%;
-    bottom: 0px;
-    background-color: rgba(251, 251, 251, 0.4);
-  }
+    position: fixed;
+    top: 16px;
+    z-index: 1;
 
-  @media screen and (min-width: 768px) {
-    top: 32px;
-  }
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1px;
+      margin-right: 32px;
+      width: 100%;
+      bottom: 0px;
+      background-color: rgba(251, 251, 251, 0.4);
+    }
 
-  @media (min-width: 1440px) {
-  }
+    @media screen and (min-width: 768px) {
+      top: 32px;
+    }
+
+  `
+      : `
+    /* Styles for other pages */
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+ background-color:  ${globalColor.main};
+  `}
 `;
 
 export const Box = styled.div`
@@ -34,19 +44,7 @@ export const Box = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    padding: 20px 90px;
-  }
-
-  @media (min-width: 1440px) {
-  }
-`;
-export const LinkBox = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  @media screen and (min-width: 768px) {
-    gap: 40px;
+    padding: ${(props) => (props.homePath ? "30px 125px" : "20px 90px")};
   }
 
   @media (min-width: 1440px) {
@@ -56,82 +54,7 @@ export const LinkBox = styled.div`
 export const BoxFeatures = styled.div`
   display: flex;
   align-items: center;
-  gap: 32px;
-
-  @media screen and (min-width: 768px) {
-    gap: 92px;
-  }
-`;
-
-export const BtnBox = styled.div`
-  display: flex;
-  gap: 8px;
-`;
-
-export const ServiceName = styled.h2`
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 117%;
-  letter-spacing: -0.02em;
-  color: ${globalColor.lightWhite};
-
-  @media screen and (min-width: 768px) {
-    font-size: 24px;
-  }
-`;
-
-export const NavigationLink = styled(NavLink)`
-  line-height: 125%;
-  letter-spacing: -0.01em;
-  color: ${globalColor.lightWhite};
-  text-decoration: none;
-`;
-
-export const LogInBtn = styled.button`
-  border: ${globalColor.borderGray};
-  border-radius: 30px;
-  padding: 10px 20px;
-  background-color: transparent;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  letter-spacing: -0.01em;
-  color: ${globalColor.lightWhite};
-
-  &:hover {
-    border: 1px solid ${globalColor.second};
-  }
-
-  transition: all 0.5s ease-in-out;
-
-  @media screen and (min-width: 768px) {
-    padding: 14px 39px;
-  }
-`;
-
-export const RegisterBtn = styled.button`
-  border-color: transparent;
-  border-radius: 30px;
-  padding: 10px 20px;
-  background-color: ${globalColor.main};
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  letter-spacing: -0.01em;
-  color: ${globalColor.lightWhite};
-
-  &:hover {
-    color: ${globalColor.main};
-    background-color: ${globalColor.lightWhite};
-  }
-
-  transition: all 0.5s ease-in-out;
-
-  @media screen and (min-width: 768px) {
-    padding: 14px 40px;
-  }
+  gap: ${(props) => (props.homePath ? "92px" : "215px")};
 `;
 
 export const BurgerBtn = styled.svg`
