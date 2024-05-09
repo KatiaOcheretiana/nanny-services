@@ -1,5 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import nanniesService from "../../services/nannies.service";
+import { NannieList } from "../../components/NannieList/NannieList";
+import { NannieDataType } from "../../types";
 // import {
 //   collection,
 //   query,
@@ -9,9 +11,6 @@ import nanniesService from "../../services/nannies.service";
 //   getDocs,
 // } from "firebase/firestore";
 // import { database } from "../../firebase";
-type NannyType = {
-  name: string;
-};
 
 const Nannies = () => {
   // // Query the first page of docs
@@ -40,20 +39,14 @@ const Nannies = () => {
     queryFn: nanniesService.getNanniesData,
   });
 
-  const nannyDataArray: NannyType[] = data as NannyType[];
+  console.log(data);
+
+  const nannyDataArray: NannieDataType[] = data as NannieDataType[];
 
   return (
     <div>
       {isLoading && <p>Loading....</p>}
-      {nannyDataArray && (
-        <div>
-          {nannyDataArray.map((item: NannyType, index: number) => (
-            <div key={index}>
-              <p>{item.name}</p>
-            </div>
-          ))}
-        </div>
-      )}
+      {nannyDataArray && <NannieList data={nannyDataArray} />}
       {!nannyDataArray && !isLoading && (
         <h3>Something went wrong, try to reload the page..</h3>
       )}

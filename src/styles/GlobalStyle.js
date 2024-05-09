@@ -9,9 +9,38 @@ html {
 }
 
 @font-face {
-  font-family: 'HelveticaNeue';
-  src: url(HelveticaNeue);
+  font-family: "Helvetica Neue";
+  src:url('../fonts/helveticaneue.ttf') format('ttf'),
+       url('../fonts/helveticaneue-medium.ttf') format('ttf'),
+     url('../fonts/helveticaneue-bold.ttf') format('ttf');
+  /* Add additional font formats if necessary */
+  /* Specify the correct path to the font files */
 }
+
+/* @font-face {
+  font-display: swap; 
+  font-family: 'HelveticaNeue';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/helveticaneue.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'HelveticaNeue';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/helveticaneue-medium.ttf') format('ttf');
+}
+
+@font-face {
+  font-display: swap; 
+  font-family: 'HelveticaNeue';
+  font-style: bold;
+  font-weight: 700;
+  src: url('../fonts/helveticaneue-bold.ttf') format('ttf');
+}
+ */
 
 *,
 *::before,
@@ -50,8 +79,9 @@ img {
 
 body {
   margin: 0 ;
-   font-family: 'HelveticaNeue', sans-serif;
+   font-family: "Helvetica Neue", sans-serif;
   color: black;
+background-color: #f3f3f3;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
