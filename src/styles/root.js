@@ -1,6 +1,7 @@
 export const globalColor = {
   main: "#F03F3B",
   second: "#F03F3B",
+  mainBackground: "rgba(240, 63, 59, 0.2)",
 
   lightWhite: "#fbfbfb",
   white: "#fff",

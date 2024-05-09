@@ -8,6 +8,7 @@ type ModalWindowPropsType = {
   onRequestClose: () => void;
   children: React.ReactNode;
   heightParameter: string;
+  width?: string;
 };
 
 const ModalWindow = ({
@@ -15,6 +16,7 @@ const ModalWindow = ({
   onRequestClose,
   heightParameter,
   children,
+  width,
 }: ModalWindowPropsType) => {
   const customStyles: Styles = {
     overlay: {
@@ -30,7 +32,7 @@ const ModalWindow = ({
       borderRadius: "30px",
       padding: "0",
       minWidth: "300px",
-      maxWidth: "565px",
+      maxWidth: width || "565px",
       height: heightParameter,
       overflow: "hidden",
     },

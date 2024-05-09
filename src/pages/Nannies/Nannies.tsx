@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import nanniesService from "../../services/nannies.service";
 import { NannieList } from "../../components/NannieList/NannieList";
 import { NannieDataType } from "../../types";
+import { Container } from "../../styles/GlobalStyle";
+
 // import {
 //   collection,
 //   query,
@@ -39,18 +41,16 @@ const Nannies = () => {
     queryFn: nanniesService.getNanniesData,
   });
 
-  console.log(data);
-
   const nannyDataArray: NannieDataType[] = data as NannieDataType[];
 
   return (
-    <div>
+    <Container>
       {isLoading && <p>Loading....</p>}
       {nannyDataArray && <NannieList data={nannyDataArray} />}
       {!nannyDataArray && !isLoading && (
         <h3>Something went wrong, try to reload the page..</h3>
       )}
-    </div>
+    </Container>
   );
 };
 
