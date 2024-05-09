@@ -82,7 +82,7 @@ export const NannieItem = ({ nannieData }: NannieItemPropsType) => {
             </LocationRatingPriceContent>
             <LocationRatingPriceContent>
               Price / 1 hour:
-              <PriceSpan> {nannieData.price_per_hour} $</PriceSpan>
+              <PriceSpan> {nannieData.price_per_hour}$</PriceSpan>
             </LocationRatingPriceContent>
           </LocationRatingPriceBox>
         </NanieContacts>

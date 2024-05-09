@@ -17,7 +17,7 @@ export const ListItem = styled.li`
 `;
 
 export const ImageWrapper = styled.div`
-  border: 2px solid rgba(240, 63, 59, 0.2);
+  border: 2px solid ${globalColor.mainBackground};
   border-radius: 30px;
   width: 120px;
   height: 120px;

@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
 import "modern-normalize";
 
-import Helvetica from "../fonts/HelveticaNeue.ttf";
-import HelveticaMedium from "../fonts/HelveticaNeueCyr-Medium.ttf";
-import HelveticaBold from "../fonts/HelveticaNeueCyr-Bold.ttf";
+// import Helvetica from "../../public/fonts/HelveticaNeue.ttf";
+// import HelveticaMedium from "../../public/fonts/HelveticaNeueCyr-Medium.ttf";
+// import HelveticaBold from "../../public/fonts/HelveticaNeueCyr-Bold.ttf";
 
 export const GlobalStyle = createGlobalStyle`
   html {
@@ -15,21 +15,21 @@ export const GlobalStyle = createGlobalStyle`
 
   @font-face {
   font-family: "Helvetica";
-  src: url(${Helvetica}) format('truetype');
+  src: url(../../public/fonts/HelveticaNeue.ttf) format('truetype');
   font-weight: normal; 
   font-style: normal;
 }
 
 @font-face {
   font-family: "Helvetica";
-  src: url(${HelveticaMedium}) format('truetype');
+  src: url(../../public/fonts/HelveticaNeueCyr-Medium.ttf) format('truetype');
   font-weight: 500; 
   font-style: normal;
 }
 
 @font-face {
   font-family: "Helvetica";
-  src: url(${HelveticaBold}) format('truetype');
+  src: url(../../public/fonts/HelveticaNeueCyr-Bold.ttf) format('truetype');
   font-weight: 700; 
   font-style: normal;
 }
@@ -70,7 +70,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    font-family: "Helvetica", sans-serif; /* Fallback fonts */
+    /* font-family: sans-serif;  */
     color: black;
     background-color: #f3f3f3;
     -webkit-font-smoothing: antialiased;
