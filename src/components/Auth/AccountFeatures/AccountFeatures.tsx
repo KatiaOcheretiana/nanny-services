@@ -1,9 +1,6 @@
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "../../../firebase";
-import nanniesService from "../../../services/nannies.service";
-import { useMutation } from "@tanstack/react-query";
-import toast from "react-hot-toast";
 import {
   Avatar,
   BtnBox,
@@ -16,6 +13,9 @@ import {
   Wrapper,
 } from "./AccountFeatures.styled.";
 import sprite from "../../../images/sprite.svg";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../../redux/auth/operations";
+import { AppDispatch } from "../../../redux/store";
 
 type AccountFeaturesPropsType = {
   styleDirection?: string;
@@ -30,6 +30,8 @@ export const AccountFeatures = ({
   handleOpenRegisterModal,
   handleOpenLogInModal,
 }: AccountFeaturesPropsType) => {
+  const dispatch: AppDispatch = useDispatch();
+
   const [authUser, setAuthUser] = useState<any>(null);
   const [userName, setUserName] = useState<string>("");
 
@@ -48,13 +50,6 @@ export const AccountFeatures = ({
     };
   }, []);
 
-  const mutation = useMutation({
-    mutationFn: nanniesService.logOut,
-    onError: () => {
-      toast.error("Something went wrong. Please try again.");
-    },
-  });
-
   return (
     <>
       {authUser ? (
@@ -68,7 +63,7 @@ export const AccountFeatures = ({
             <UserName>{userName}</UserName>
           </UserBox>
 
-          <BtnLogOut onClick={() => mutation.mutate()}>Log out</BtnLogOut>
+          <BtnLogOut onClick={() => dispatch(logOut())}>Log out</BtnLogOut>
         </Wrapper>
       ) : (
         <BtnBox styleDirection={styleDirection}>

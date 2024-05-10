@@ -16,7 +16,7 @@ import {
   PriceSpan,
   TextAbout,
 } from "./NannieItem.styled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { Application } from "../Application/Application";
 
@@ -49,6 +49,25 @@ export const NannieItem = ({ nannieData }: NannieItemPropsType) => {
   const characters = nannieData.characters
     .map((item) => item.charAt(0).toUpperCase() + item.substring(1))
     .join(", ");
+
+  const [heightModalParameter, setHeightModalParameter] = useState<string>("");
+  const [scrollModalParameter, setScrollModalParameter] = useState<string>("");
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newHeightParameter = window.innerWidth >= 1630 ? "900px" : "86vh";
+      setHeightModalParameter(newHeightParameter);
+
+      const newScrollParameter = window.innerWidth >= 1630 ? "hidden" : "auto";
+      setScrollModalParameter(newScrollParameter);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <ListItem>
@@ -117,8 +136,9 @@ export const NannieItem = ({ nannieData }: NannieItemPropsType) => {
         <ModalWindow
           isOpen={isModalOpen}
           onRequestClose={handleCloseLogInModal}
-          heightParameter="100vh"
+          heightParameter={heightModalParameter}
           width="599px"
+          scroll={scrollModalParameter}
         >
           <Application
             onRequestClose={handleCloseLogInModal}

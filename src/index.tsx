@@ -4,15 +4,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/GlobalStyle";
 import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-});
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { Loader } from "./components/Loader/Loader";
+import { persistor, store } from "./redux/store";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -20,18 +15,17 @@ const root = ReactDOM.createRoot(
 root.render(
   <>
     {/* <React.StrictMode> */}
-    <BrowserRouter basename="/nanny-services">
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </BrowserRouter>
-    <GlobalStyle />
+    <Provider store={store}>
+      <PersistGate loading={<Loader />} persistor={persistor}>
+        <BrowserRouter basename="/nanny-services">
+          <App />
+        </BrowserRouter>
+        <GlobalStyle />
+      </PersistGate>
+    </Provider>
 
     {/* </React.StrictMode> */}
   </>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

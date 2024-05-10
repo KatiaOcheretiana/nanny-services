@@ -12,10 +12,10 @@ import {
 } from "../Auth.styled";
 import { useState } from "react";
 import sprite from "../../../images/sprite.svg";
-import { useMutation } from "@tanstack/react-query";
-import nanniesService from "../../../services/nannies.service";
-import toast from "react-hot-toast";
 import { SignupSchema } from "../schema";
+import { useDispatch } from "react-redux";
+import { register } from "../../../redux/auth/operations";
+import { AppDispatch } from "../../../redux/store";
 
 export type UserType = {
   name?: string;
@@ -31,14 +31,18 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
 
-  const { mutate } = useMutation({
-    mutationKey: ["register"],
-    mutationFn: nanniesService.register,
-    onSuccess: () => {
-      onRequestClose();
-      toast.success("Successfully registered! Welcome!");
-    },
-  });
+  const dispatch: AppDispatch = useDispatch();
+
+  //   onSuccess: () => {
+  //     onRequestClose();
+  //     toast.success("Successfully registered! Welcome!");
+  //   },
+  // });
+
+  const handleSubmit = (values: UserType) => {
+    dispatch(register(values));
+    onRequestClose();
+  };
 
   return (
     <Container>
@@ -54,7 +58,7 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
           password: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values) => mutate(values)}
+        onSubmit={(values) => handleSubmit(values)}
       >
         {({ errors, touched }) => (
           <FormFiels>

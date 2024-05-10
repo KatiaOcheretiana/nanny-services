@@ -18,3 +18,18 @@ export const CloseModalBtn = styled.svg`
     stroke: ${globalColor.colorOrange};
   }
 `;
+
+export const ContentWrapper = styled.div`
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${globalColor.main};
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+`;

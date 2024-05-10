@@ -3,15 +3,29 @@ import { globalColor } from "../../styles/root";
 import { Field, Form } from "formik";
 
 export const Container = styled.div`
-  padding: 44px 24px;
+  padding: 64px 36px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 2px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
 
   @media screen and (min-width: 768px) {
     padding: 44px;
   }
 
-  @media (min-width: 1440px) {
-    padding: 64px;
+  @media (min-width: 1640px) {
+    padding: 60px 64px;
+    overflow-y: hidden;
   }
 `;
 
@@ -52,13 +66,18 @@ export const FieldForm = styled(Field)`
 `;
 
 export const ContactWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 18px;
+  grid-template-columns: auto;
+  /* display: flex;
+  flex-direction: column;
+  gap: 18px; */
 
   @media screen and (min-width: 1440px) {
-    flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+
+    grid-template-columns: 1fr 1fr;
     row-gap: 18px;
     column-gap: 5px;
   }
@@ -66,7 +85,7 @@ export const ContactWrapper = styled.div`
 
 export const ContactField = styled(FieldForm)`
   @media screen and (min-width: 1440px) {
-    width: 232px;
+    height: 52px;
   }
 `;
 

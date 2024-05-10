@@ -13,10 +13,11 @@ import {
   Title,
 } from "../Auth.styled";
 import sprite from "../../../images/sprite.svg";
-import { useMutation } from "@tanstack/react-query";
-import toast from "react-hot-toast";
-import nanniesService from "../../../services/nannies.service";
 import { SighInSchema } from "../schema";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../../redux/auth/operations";
+import { UserType } from "../SignUp/SignUp";
+import { AppDispatch } from "../../../redux/store";
 
 type SignInPropsType = {
   onRequestClose: () => void;
@@ -26,17 +27,21 @@ export const SignIn = ({ onRequestClose }: SignInPropsType) => {
   const [showPassword, setShowPassword] = useState(false);
   const toogleShowPassword = () => setShowPassword(!showPassword);
 
-  const { mutate } = useMutation({
-    mutationKey: ["login"],
-    mutationFn: nanniesService.logIn,
-    onSuccess: () => {
-      toast.success("Welcome!");
-      onRequestClose();
-    },
-    onError: () => {
-      toast.error("Your email or password is wrong! Please try again.");
-    },
-  });
+  const dispatch: AppDispatch = useDispatch();
+
+  //   onSuccess: () => {
+  //     toast.success("Welcome!");
+  //
+  //   },
+  //   onError: () => {
+  //     toast.error("Your email or password is wrong! Please try again.");
+  //   },
+  // });
+
+  const handleSubmit = (values: UserType) => {
+    dispatch(logIn(values));
+    onRequestClose();
+  };
 
   return (
     <Container style={{ height: "489px" }}>
@@ -52,7 +57,7 @@ export const SignIn = ({ onRequestClose }: SignInPropsType) => {
           password: "",
         }}
         validationSchema={SighInSchema}
-        onSubmit={(values) => mutate(values)}
+        onSubmit={(values) => handleSubmit(values)}
       >
         {({ errors, touched }) => (
           <FormFiels>

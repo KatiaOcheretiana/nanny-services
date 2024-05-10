@@ -60,7 +60,9 @@ export const Application = ({
           comment: "",
         }}
         validationSchema={applicationSchema}
-        onSubmit={(values) => handleSubmit(values)}
+        onSubmit={(values) => {
+          handleSubmit(values);
+        }}
       >
         {({ errors, touched }) => (
           <FormFiels>
@@ -114,6 +116,17 @@ export const Application = ({
             </ContactWrapper>
             <Label>
               <FieldForm
+                name="email"
+                type="email"
+                autoComplete="off"
+                placeholder="Email"
+              />
+              {errors.email && touched.email && (
+                <ErrorText>{errors.email}</ErrorText>
+              )}
+            </Label>
+            <Label>
+              <FieldForm
                 name="name"
                 type="text"
                 autoComplete="off"
@@ -128,7 +141,10 @@ export const Application = ({
                 name="comment"
                 autoComplete="off"
                 placeholder="Comment"
-              />
+              />{" "}
+              {errors.comment && touched.comment && (
+                <ErrorText>{errors.comment}</ErrorText>
+              )}
             </Label>
             <Button type="submit">Send</Button>
           </FormFiels>
