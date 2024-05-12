@@ -1,22 +1,31 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
 import { getUser, logIn, logOut, register } from "./operations";
 
-const initialState = {
+type InitialStateProps = {
+  user: any;
+  isLoading: boolean;
+  error: null | string;
+};
+
+const initialState: InitialStateProps = {
   user: null,
   isLoading: false,
   error: null,
 };
 
-const handlePending = (state: any) => {
+const handlePending = (state: Draft<InitialStateProps>) => {
   state.isLoading = true;
 };
 
-const handleFulfilled = (state: any) => {
+const handleFulfilled = (state: Draft<InitialStateProps>) => {
   state.isLoading = false;
   state.error = null;
 };
 
-const handleRejected = (state: any, action: PayloadAction<any>) => {
+const handleRejected = (
+  state: Draft<InitialStateProps>,
+  action: PayloadAction<any>
+) => {
   state.isLoading = false;
   state.error = action.payload;
 };
@@ -43,7 +52,10 @@ const authSlice = createSlice({
       )
 
       .addCase(logOut.pending, (state) => handlePending(state))
-      .addCase(logOut.fulfilled, (state) => handleFulfilled(state))
+      .addCase(logOut.fulfilled, (state) => {
+        handleFulfilled(state);
+        state.user = null;
+      })
       .addCase(logOut.rejected, (state, action: any) =>
         handleRejected(state, action)
       )

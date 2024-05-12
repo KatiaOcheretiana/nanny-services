@@ -1,25 +1,33 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
-import { lazy } from "react";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "./redux/auth/selectors";
+import { lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "./redux/store";
+import { getUser } from "./redux/auth/operations";
+import { PrivateRoute } from "./PrivateRoute";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
 const Nannies = lazy(() => import("./pages/Nannies/Nannies"));
+const Favorites = lazy(() => import("./pages/Favorites/Favorites"));
 
 function App() {
-  const currentUser = useSelector(selectCurrentUser);
+  const dispatch: AppDispatch = useDispatch();
 
-  console.log(currentUser);
+  useEffect(() => {
+    dispatch(getUser());
+  }, [dispatch]);
 
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="/nannies" element={<Nannies />} />
-        {currentUser && (
-          <Route path="/favorites" element={<h1>Favorites</h1>} />
-        )}
+        <Route
+          path="/favorites"
+          element={
+            <PrivateRoute redirectTo="/nannies" component={<Favorites />} />
+          }
+        />
         <Route path="*" element={<Nannies />} />
       </Route>
     </Routes>

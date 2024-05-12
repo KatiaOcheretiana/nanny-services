@@ -58,7 +58,7 @@ export const getUser = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const currentUser = await getCurrentUser();
-      return currentUser;
+      return currentUser.displayName;
     } catch (error: any) {
       return thunkAPI.rejectWithValue(error.message);
     }

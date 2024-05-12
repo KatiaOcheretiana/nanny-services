@@ -3,6 +3,7 @@ import sprite from "../../images/sprite.svg";
 import { NannieFeatures } from "../NannieFeatures/NannieFeatures";
 import { Reviews } from "../Reviews/Reviews";
 import {
+  ButtonLikeStyled,
   ButtonOpenModal,
   ButtonReadMore,
   FeaturesList,
@@ -19,6 +20,7 @@ import {
 import { useEffect, useState } from "react";
 import ModalWindow from "../ModalWindow/ModalWindow";
 import { Application } from "../Application/Application";
+import { ButtonLike } from "../ButtonLike/ButtonLike";
 
 type NannieItemPropsType = {
   nannieData: NannieDataType;
@@ -77,6 +79,9 @@ export const NannieItem = ({ nannieData }: NannieItemPropsType) => {
           <use href={sprite + "#icon-status-online"} />
         </svg>
       </ImageWrapper>
+      <ButtonLikeStyled>
+        <ButtonLike nannieName={nannieData.name} />
+      </ButtonLikeStyled>
       <div>
         <NanieContacts>
           <div>

@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { globalColor } from "../../styles/root";
 
 export const ListItem = styled.li`
+  position: relative;
+
   display: grid;
   grid-template-columns: auto;
   gap: 22px;
@@ -160,4 +162,10 @@ export const ButtonOpenModal = styled.button`
   line-height: 125%;
   letter-spacing: -0.01em;
   color: ${globalColor.lightWhite};
+`;
+
+export const ButtonLikeStyled = styled.div`
+  position: absolute;
+  top: 25px;
+  right: 25px;
 `;

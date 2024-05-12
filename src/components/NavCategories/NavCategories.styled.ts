@@ -15,10 +15,6 @@ export const LinkBox = styled.div<LinkBoxProps>`
   @media screen and (min-width: 768px) {
     gap: 40px;
   }
-
-  @media (min-width: 1440px) {
-    /* Add your styles here if needed */
-  }
 `;
 
 export const NavigationLink = styled(NavLink)`

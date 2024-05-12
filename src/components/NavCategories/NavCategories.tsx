@@ -1,4 +1,5 @@
-import { auth } from "../../firebase";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../redux/auth/selectors";
 import { LinkBox, NavigationLink } from "./NavCategories.styled";
 
 type NavCategoriesPropsType = {
@@ -6,11 +7,13 @@ type NavCategoriesPropsType = {
 };
 
 export const NavCategories = ({ styleDirection }: NavCategoriesPropsType) => {
+  const currentUser = useSelector(selectCurrentUser);
+
   return (
     <LinkBox styleDirection={styleDirection}>
       <NavigationLink to="/">Home</NavigationLink>
       <NavigationLink to="/nannies">Nannies</NavigationLink>
-      {auth.currentUser && (
+      {currentUser && (
         <NavigationLink to="/favorites">Favorites</NavigationLink>
       )}
     </LinkBox>
