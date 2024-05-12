@@ -1,22 +1,26 @@
 {
   "files": {
     "main.css": "/nanny-services/static/css/main.7cda0caf.css",
-    "main.js": "/nanny-services/static/js/main.597effc2.js",
+    "main.js": "/nanny-services/static/js/main.db27bf39.js",
     "static/js/108.e292d35b.chunk.js": "/nanny-services/static/js/108.e292d35b.chunk.js",
-    "static/js/690.96cceec5.chunk.js": "/nanny-services/static/js/690.96cceec5.chunk.js",
+    "static/js/822.101c8cd3.chunk.js": "/nanny-services/static/js/822.101c8cd3.chunk.js",
+    "static/js/782.f238570c.chunk.js": "/nanny-services/static/js/782.f238570c.chunk.js",
     "static/js/453.60450235.chunk.js": "/nanny-services/static/js/453.60450235.chunk.js",
+    "static/js/180.b36ee241.chunk.js": "/nanny-services/static/js/180.b36ee241.chunk.js",
     "static/media/bg_1x.png": "/nanny-services/static/media/bg_1x.4cb160dc1eafcfa37fe2.png",
     "static/media/bg_2x.png": "/nanny-services/static/media/bg_2x.4abe88267c63f5ba330a.png",
     "static/media/sprite.svg": "/nanny-services/static/media/sprite.1e714dc76d5142fe1fd5b364a811cf9f.svg",
     "index.html": "/nanny-services/index.html",
     "main.7cda0caf.css.map": "/nanny-services/static/css/main.7cda0caf.css.map",
-    "main.597effc2.js.map": "/nanny-services/static/js/main.597effc2.js.map",
+    "main.db27bf39.js.map": "/nanny-services/static/js/main.db27bf39.js.map",
     "108.e292d35b.chunk.js.map": "/nanny-services/static/js/108.e292d35b.chunk.js.map",
-    "690.96cceec5.chunk.js.map": "/nanny-services/static/js/690.96cceec5.chunk.js.map",
-    "453.60450235.chunk.js.map": "/nanny-services/static/js/453.60450235.chunk.js.map"
+    "822.101c8cd3.chunk.js.map": "/nanny-services/static/js/822.101c8cd3.chunk.js.map",
+    "782.f238570c.chunk.js.map": "/nanny-services/static/js/782.f238570c.chunk.js.map",
+    "453.60450235.chunk.js.map": "/nanny-services/static/js/453.60450235.chunk.js.map",
+    "180.b36ee241.chunk.js.map": "/nanny-services/static/js/180.b36ee241.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.597effc2.js"
+    "static/js/main.db27bf39.js"
   ]
 }
