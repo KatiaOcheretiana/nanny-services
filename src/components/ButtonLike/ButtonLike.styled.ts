@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { globalColor } from "../../styles/root";
 
 type IconLikeProps = {
   isLike: boolean;
