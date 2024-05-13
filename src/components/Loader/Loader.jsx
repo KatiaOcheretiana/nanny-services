@@ -4,7 +4,7 @@ import { globalColor } from "../../styles/root";
 export const Loader = () => {
   return (
     <PropagateLoader
-      color={globalColor.main}
+      color={globalColor.textGray}
       cssOverride={{
         position: "absolute",
         top: "50%",

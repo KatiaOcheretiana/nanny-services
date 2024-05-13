@@ -20,15 +20,6 @@ export const IconLike = styled.svg<IconLikeProps>`
   width: 26px;
   height: 26px;
 
-  ${({ isLike }) =>
-    isLike
-      ? `
-        fill: ${globalColor.main};
-       stroke: ${globalColor.main};
-      
-      `
-      : `
-       fill: transparent;
-       stroke: #101828;
-      `}
+  fill: ${(props) => (props.isLike ? props.theme.main : "transparent")};
+  stroke: ${(props) => (props.isLike ? props.theme.main : "#101828")};
 `;

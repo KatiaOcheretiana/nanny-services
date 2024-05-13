@@ -25,7 +25,7 @@ export const BtnLogOut = styled.button`
   color: ${globalColor.lightWhite};
 
   &:hover {
-    color: ${globalColor.main};
+    color: ${(props) => props.theme.main};
     background-color: ${globalColor.lightWhite};
   }
 
@@ -51,7 +51,7 @@ export const UserAvatarField = styled.div`
 `;
 
 export const Avatar = styled.svg`
-  fill: ${globalColor.main};
+  fill: ${(props) => props.theme.main};
 `;
 
 export const UserName = styled.p`
@@ -76,7 +76,7 @@ export const LogInBtn = styled.button<Props>`
 
   &:hover {
     border: 1px solid
-      ${(props) => (props.homePath ? globalColor.second : globalColor.white)};
+      ${(props) => (props.homePath ? props.theme.second : globalColor.white)};
   }
 
   transition: all 0.5s ease-in-out;
@@ -98,9 +98,9 @@ export const RegisterBtn = styled.button<Props>`
   border-radius: 30px;
   padding: 10px 20px;
   background-color: ${(props) =>
-    props.homePath ? globalColor.main : globalColor.lightWhite};
+    props.homePath ? props.theme.main : globalColor.lightWhite};
   color: ${(props) =>
-    props.homePath ? globalColor.lightWhite : globalColor.main};
+    props.homePath ? globalColor.lightWhite : props.theme.main};
 
   font-weight: 500;
   font-size: 16px;
@@ -109,7 +109,7 @@ export const RegisterBtn = styled.button<Props>`
 
   &:hover {
     color: ${(props) =>
-      props.homePath ? globalColor.main : globalColor.lightWhite};
+      props.homePath ? props.theme.main : globalColor.lightWhite};
     background-color: ${(props) =>
       props.homePath ? globalColor.lightWhite : globalColor.notActiveSelect};
   }

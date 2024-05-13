@@ -24,13 +24,12 @@ export const Avatar = styled.div`
   align-items: center;
   justify-content: center;
 
-  color: ${globalColor.main};
-  background-color: ${globalColor.mainBackground};
+  color: ${(props) => props.theme.main};
+  background-color: ${(props) => props.theme.mainBackground};
 
   font-weight: 500;
   font-size: 20px;
   line-height: 100%;
-  color: #f03f3b;
 `;
 
 export const ReviewerInfo = styled.div`

@@ -26,7 +26,7 @@ export const ContentWrapper = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: ${globalColor.main};
+    background-color: ${(props) => props.theme.main};
   }
 
   &::-webkit-scrollbar-track {

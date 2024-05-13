@@ -13,7 +13,7 @@ export const Container = styled.div`
 `;
 
 export const PageWrapper = styled.section`
-  background-color: ${globalColor.main};
+  background-color: ${(props) => props.theme.main};
   border-radius: 30px;
   display: grid;
   grid-template-rows: 1fr 1fr;

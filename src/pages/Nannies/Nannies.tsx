@@ -6,14 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getNanniesData } from "../../redux/nannies/operations";
 import {
   selectIsLoading,
-  selectNanniesData,
+  selectNanniesByFilter,
 } from "../../redux/nannies/selectors";
 import { AppDispatch } from "../../redux/store";
+import { Filters } from "../../components/Filters/Filters";
 
 const Nannies = () => {
   const dispatch: AppDispatch = useDispatch();
 
-  const nanniesData = useSelector(selectNanniesData);
+  const nanniesData = useSelector(selectNanniesByFilter);
   const isLoading = useSelector(selectIsLoading);
 
   useEffect(() => {
@@ -23,7 +24,12 @@ const Nannies = () => {
   return (
     <Container>
       {isLoading && <Loader />}
-      {nanniesData && <NannieList data={nanniesData} />}
+      {nanniesData && (
+        <>
+          <Filters />
+          <NannieList data={nanniesData} />
+        </>
+      )}
       {!nanniesData && !isLoading && (
         <h3>Something went wrong, try to reload the page..</h3>
       )}

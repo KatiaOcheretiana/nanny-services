@@ -13,16 +13,25 @@ import storage from "redux-persist/lib/storage";
 import { nanniesReducer } from "./nannies/nanniesSlice";
 import { authReducer } from "./auth/authSlice";
 import { favoriteReducer } from "./favorite/favoriteSlice";
+import { colorThemeReducer } from "./colorTheme/colorThemeSlice";
+import { filterReducer } from "./filter/filterSlice";
 
 const persistConfig = {
   key: "favorite",
   storage,
 };
 
+const persistConfigColor = {
+  key: "colorTheme",
+  storage,
+};
+
 const reducers = combineReducers({
   favorite: persistReducer<any>(persistConfig, favoriteReducer),
+  colorTheme: persistReducer<any>(persistConfigColor, colorThemeReducer),
   auth: authReducer,
   nannies: nanniesReducer,
+  filter: filterReducer,
 });
 
 export const store = configureStore({

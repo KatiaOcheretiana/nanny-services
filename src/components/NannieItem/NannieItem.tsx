@@ -102,7 +102,7 @@ export const NannieItem = ({ nannieData }: NannieItemPropsType) => {
               <svg width={16} height={16}>
                 <use href={sprite + "#icon-star"} />
               </svg>
-              Rating: {nannieData.rating}
+              Rating: {nannieData.rating.toFixed(1)}
             </LocationRatingPriceContent>
             <LocationRatingPriceContent>
               Price / 1 hour:

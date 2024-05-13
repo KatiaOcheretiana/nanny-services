@@ -3,6 +3,7 @@ import {
   Box,
   BoxFeatures,
   BurgerBtn,
+  ColorWrapper,
   NavWrapperHomePage,
 } from "./Navigation.styled";
 import MediaQuery from "react-responsive";
@@ -15,6 +16,7 @@ import { AccountFeatures } from "../Auth/AccountFeatures/AccountFeatures";
 import { NavCategories } from "../NavCategories/NavCategories";
 import { Logo } from "../Logo/Logo";
 import { useLocation } from "react-router-dom";
+import { ChangeColor } from "../ChangeColor/ChangeColor";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,6 +75,10 @@ export const Navigation = () => {
             </BurgerBtn>
           </MediaQuery>
         </Box>
+        <ColorWrapper>
+          <ChangeColor />
+        </ColorWrapper>
+
         <MediaQuery maxWidth={1439}>
           {isMenuOpen && (
             <MobileMenu

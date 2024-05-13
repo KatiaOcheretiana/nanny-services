@@ -33,12 +33,6 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
 
   const dispatch: AppDispatch = useDispatch();
 
-  //   onSuccess: () => {
-  //     onRequestClose();
-  //     toast.success("Successfully registered! Welcome!");
-  //   },
-  // });
-
   const handleSubmit = (values: UserType) => {
     dispatch(register(values));
     onRequestClose();

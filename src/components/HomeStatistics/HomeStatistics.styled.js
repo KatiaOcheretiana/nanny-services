@@ -24,7 +24,7 @@ export const SvgBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${globalColor.main};
+  background-color: ${(props) => props.theme.main};
 
   border-radius: 13px;
   width: 54px;

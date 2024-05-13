@@ -19,7 +19,7 @@ export const ListItem = styled.li`
 `;
 
 export const ImageWrapper = styled.div`
-  border: 2px solid ${globalColor.mainBackground};
+  border: 2px solid ${(props) => props.theme.mainBackground};
   border-radius: 30px;
   width: 120px;
   height: 120px;
@@ -155,7 +155,7 @@ export const ButtonOpenModal = styled.button`
   padding: 14px 28px;
 
   border-color: transparent;
-  background-color: ${globalColor.main};
+  background-color: ${(props) => props.theme.main};
 
   font-weight: 500;
   font-size: 16px;

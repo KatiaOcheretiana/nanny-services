@@ -36,7 +36,9 @@ export const ButtonLike = ({ nannieName }: ButtonLikeProps) => {
         dispatch(addToFavorite(nannieName));
       }
     } else {
-      toast.error("Only registered user can do it. Please register");
+      toast.error(
+        "Only registered users can perform this action. Please register."
+      );
     }
   };
 

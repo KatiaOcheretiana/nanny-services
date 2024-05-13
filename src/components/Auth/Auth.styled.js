@@ -55,7 +55,7 @@ export const Button = styled.button`
   border-radius: 30px;
   border-color: transparent;
   padding: 16px;
-  background-color: ${globalColor.second};
+  background-color: ${(props) => props.theme.second};
 
   font-weight: 500;
   font-size: 16px;
@@ -65,9 +65,9 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    color: ${globalColor.main};
+    color: ${(props) => props.theme.main};
     background-color: ${globalColor.lightWhite};
-    border-color: ${globalColor.main};
+    border-color: ${(props) => props.theme.main};
   }
 
   transition: all 0.5s ease;
@@ -79,7 +79,7 @@ export const Label = styled.label`
 
 export const ErrorText = styled.div`
   position: absolute;
-  color: ${globalColor.main};
+  color: ${(props) => props.theme.main};
   font-size: 12px;
   left: 6px;
 `;

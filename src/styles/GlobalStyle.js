@@ -96,7 +96,8 @@ export const Container = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
+    max-width: 1184px;
     padding: 0 132px;
-    margin: 150px auto;
+    margin: 150px auto 100px auto;
   }
 `;

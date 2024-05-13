@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "./Layout";
 import { lazy, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "./redux/store";
 import { getUser } from "./redux/auth/operations";
 import { PrivateRoute } from "./PrivateRoute";
+import { selectColorTheme } from "./redux/colorTheme/selectors";
+import { ThemeProvider } from "styled-components";
+import { blueTheme, greenTheme, redTheme } from "./styles/root";
 
 const HomePage = lazy(() => import("./pages/Home/Home"));
 const Nannies = lazy(() => import("./pages/Nannies/Nannies"));
@@ -17,20 +20,30 @@ function App() {
     dispatch(getUser());
   }, [dispatch]);
 
+  const color = useSelector(selectColorTheme);
+
+  const isRedTheme = color === "red";
+  // const isGreenTheme = color === "green";
+  const isBlueTheme = color === "blue";
+
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
-        <Route path="/nannies" element={<Nannies />} />
-        <Route
-          path="/favorites"
-          element={
-            <PrivateRoute redirectTo="/nannies" component={<Favorites />} />
-          }
-        />
-        <Route path="*" element={<Nannies />} />
-      </Route>
-    </Routes>
+    <ThemeProvider
+      theme={isRedTheme ? redTheme : isBlueTheme ? blueTheme : greenTheme}
+    >
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/nannies" element={<Nannies />} />
+          <Route
+            path="/favorites"
+            element={
+              <PrivateRoute redirectTo="/nannies" component={<Favorites />} />
+            }
+          />
+          <Route path="*" element={<Nannies />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 

@@ -8,8 +8,9 @@ export const NavWrapperHomePage = styled.div`
     /* Styles for home page */
     width: 100%;
     position: fixed;
-    top: 16px;
     z-index: 1;
+top:20px;
+
 
     &::after {
       position: absolute;
@@ -17,13 +18,13 @@ export const NavWrapperHomePage = styled.div`
       height: 1px;
       margin-right: 32px;
       width: 100%;
-      bottom: 0px;
+
       background-color: rgba(251, 251, 251, 0.4);
     }
 
-    @media screen and (min-width: 768px) {
-      top: 32px;
-    }
+     @media screen and (min-width: 768px) {
+   top: 32px;
+  }
 
   `
       : `
@@ -32,19 +33,22 @@ export const NavWrapperHomePage = styled.div`
     position: fixed;
     top: 0px;
     z-index: 100;
- background-color:  ${globalColor.main};
   `}
 `;
 
 export const Box = styled.div`
+  position: relative;
+
   padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: ${(props) =>
+    !props.homePath ? props.theme.main : "transparent"};
 
   @media screen and (min-width: 768px) {
-    padding: ${(props) => (props.homePath ? "30px 125px" : "20px 90px")};
+    padding: ${(props) => (!props.homePath ? "30px 125px" : "20px 90px")};
   }
 
   @media (min-width: 1440px) {
@@ -65,4 +69,19 @@ export const BurgerBtn = styled.svg`
   stroke-width: 1.5px;
   display: block;
   margin-right: 16px;
+`;
+
+export const ColorWrapper = styled.div`
+  position: absolute;
+  top: 35%;
+  left: 170px;
+
+  @media screen and (min-width: 768px) {
+    top: 35%;
+    left: 320px;
+  }
+
+  @media (min-width: 1440px) {
+    top: 40%;
+  }
 `;

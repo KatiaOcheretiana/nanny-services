@@ -29,15 +29,6 @@ export const SignIn = ({ onRequestClose }: SignInPropsType) => {
 
   const dispatch: AppDispatch = useDispatch();
 
-  //   onSuccess: () => {
-  //     toast.success("Welcome!");
-  //
-  //   },
-  //   onError: () => {
-  //     toast.error("Your email or password is wrong! Please try again.");
-  //   },
-  // });
-
   const handleSubmit = (values: UserType) => {
     dispatch(logIn(values));
     onRequestClose();
