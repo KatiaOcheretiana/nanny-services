@@ -1,6 +1,10 @@
 # Nanny Services Application
 
-This application is designed for a company offering nanny services. It consists of three main pages:
+This application is designed for a company offering nanny services.
+
+- [Figma markup](<https://www.figma.com/file/oBJvjKfqqZwfiC4Pc8kppg/Nanny-Sevices-(Copy)?type=design&node-id=3%3A152&mode=dev&t=skyHH4c951U9WSuf-1>) 📌
+
+- [Technical task](https://docs.google.com/document/d/1OKak1vwN-XLtw85Ao1-414j4jhLZiiH8UP6uGwuuUmU/edit?usp=sharing) 📌
 
 ## Pages
 
@@ -34,6 +38,9 @@ Displays nannies added to favorites by the user.
 - Firebase authentication: Implemented registration, login, fetching user data, and logout using Firebase Authentication.
 - Change color theme: Added the ability to change the color theme of the application.
 - Responsive Design: Implemented a responsive design from 320px to 1440px, ensuring correct display on mobile and tablet devices.
+- Modal Windows: Incorporated modal windows for user actions such as application submission, registration, and login, providing a user-friendly and intuitive interface for these interactions.
+- Like Button with Favorites: Implemented a like button feature that allows users to add nannies to their favorites list directly from the nanny cards, enabling easy access to preferred nannies for future reference.
+- Filtration of Cards: Enabled filtration functionality to refine the display of nanny cards based on user-defined criteria, enhancing the browsing experience by providing relevant and targeted results.
 
 ## How to Use
 
