@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# Nanny Services Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application is designed for a company offering nanny services. It consists of three main pages:
 
-## Available Scripts
+## Pages
 
-In the project directory, you can run:
+1. Home Page
 
-### `yarn start`
+Displays the site title, company slogan, and a link to start using the application.
+Upon clicking the link, users are redirected to the "Nannies" page.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2. Nannies Page
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Lists nannies available for hire.
+Users can sort the list of nannies alphabetically (ascending or descending), by price (lowest to highest or highest to lowest), or by popularity (lowest rating to highest rating or vice versa).
+Users have the ability to add nannies to their favorites list by liking the respective nanny cards.
 
-### `yarn test`
+3. Favorites Page
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Displays nannies added to favorites by the user.
 
-### `yarn build`
+## Technologies Used
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React.js
+- TypeScript
+- Redux (toolkit, redux-persist)
+- Firebase
+- React Router
+- Styled-components
+- Formik/Yup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Firebase authentication: Implemented registration, login, fetching user data, and logout using Firebase Authentication.
+- Change color theme: Added the ability to change the color theme of the application.
+- Responsive Design: Implemented a responsive design from 320px to 1440px, ensuring correct display on mobile and tablet devices.
 
-### `yarn eject`
+## How to Use
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Cloning the Repository
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the repository from GitHub using the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  git clone https://github.com/KatiaOcheretiana/nanny-services
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installing Dependencies
 
-## Learn More
+2. Navigate to the project directory:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+ cd nanny-services
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Install dependencies using yarn:
+
+```bash
+yarn
+```
+
+### Starting the Application
+
+4. Once the dependencies are installed, start the application using:
+
+```bash
+yarn start
+```
+
+5. The application will start running locally, and you can access it via your web browser at `http://localhost:3000`.
