@@ -60,7 +60,7 @@ export const NannieItem = ({ nannieData }: NannieItemPropsType) => {
       const newHeightParameter = window.innerWidth >= 1630 ? "900px" : "86vh";
       setHeightModalParameter(newHeightParameter);
 
-      const newScrollParameter = window.innerWidth >= 1630 ? "hidden" : "auto";
+      const newScrollParameter = window.innerWidth >= 1830 ? "hidden" : "auto";
       setScrollModalParameter(newScrollParameter);
     };
 

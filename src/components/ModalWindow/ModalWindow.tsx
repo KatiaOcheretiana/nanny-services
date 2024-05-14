@@ -24,7 +24,6 @@ const ModalWindow = ({
     overlay: {
       backgroundColor: "rgba(11, 11, 11, 0.6)",
       zIndex: "1001",
-      overflowY: "hidden",
     },
     content: {
       position: "absolute",
