@@ -2,13 +2,13 @@ import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
 import { getUser, logIn, logOut, register } from "./operations";
 
 type InitialStateProps = {
-  user: any;
+  user: string;
   isLoading: boolean;
   error: null | string;
 };
 
 const initialState: InitialStateProps = {
-  user: null,
+  user: "",
   isLoading: false,
   error: null,
 };
@@ -54,7 +54,7 @@ const authSlice = createSlice({
       .addCase(logOut.pending, (state) => handlePending(state))
       .addCase(logOut.fulfilled, (state) => {
         handleFulfilled(state);
-        state.user = null;
+        state.user = "";
       })
       .addCase(logOut.rejected, (state, action: any) =>
         handleRejected(state, action)

@@ -13,9 +13,10 @@ import {
   Wrapper,
 } from "./AccountFeatures.styled.";
 import sprite from "../../../images/sprite.svg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../../redux/auth/operations";
 import { AppDispatch } from "../../../redux/store";
+import { selectCurrentUser } from "../../../redux/auth/selectors";
 
 type AccountFeaturesPropsType = {
   styleDirection?: string;
@@ -32,8 +33,10 @@ export const AccountFeatures = ({
 }: AccountFeaturesPropsType) => {
   const dispatch: AppDispatch = useDispatch();
 
+  const name = useSelector(selectCurrentUser);
+
   const [authUser, setAuthUser] = useState<any>(null);
-  const [userName, setUserName] = useState<string>("");
+  const [userName, setUserName] = useState<string>(name);
 
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
@@ -52,7 +55,7 @@ export const AccountFeatures = ({
 
   return (
     <>
-      {authUser ? (
+      {authUser || userName ? (
         <Wrapper styleDirection={styleDirection}>
           <UserBox>
             <UserAvatarField>
@@ -60,7 +63,7 @@ export const AccountFeatures = ({
                 <use href={sprite + "#icon-avatar"} />
               </Avatar>
             </UserAvatarField>
-            <UserName>{userName}</UserName>
+            <UserName>{authUser ? authUser.displayName : userName}</UserName>
           </UserBox>
 
           <BtnLogOut onClick={() => dispatch(logOut())}>Log out</BtnLogOut>

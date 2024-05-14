@@ -34,7 +34,7 @@ export const Application = ({
   };
 
   return (
-    <Container style={{ height: "100vh" }}>
+    <Container>
       <Title>Make an appointment with a babysitter</Title>
       <TextDescription>
         Arranging a meeting with a caregiver for your child is the first step to

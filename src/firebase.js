@@ -2,6 +2,10 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
+// const key = process.env.FIREBASE_KEY;
+
+// console.log(key);
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBWgTAltPgrrZkzWnoyFNFDlAQgfh9sw78",
   authDomain: "nanniesservices-2c7b7.firebaseapp.com",

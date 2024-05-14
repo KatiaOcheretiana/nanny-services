@@ -24,6 +24,7 @@ const ModalWindow = ({
     overlay: {
       backgroundColor: "rgba(11, 11, 11, 0.6)",
       zIndex: "1001",
+      overflowY: "hidden",
     },
     content: {
       position: "absolute",
@@ -36,28 +37,22 @@ const ModalWindow = ({
       minWidth: "300px",
       maxWidth: width || "565px",
       height: heightParameter,
-      overflow: "hidden",
+      overflowY: "hidden",
     },
   };
 
   return (
-    <div>
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={onRequestClose}
-        style={customStyles}
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles}>
+      <CloseModalBtn onClick={() => onRequestClose()}>
+        <use href={`${sprite}#icon-x`}></use>
+      </CloseModalBtn>
+      <ContentWrapper
+        style={{ overflow: scroll || "hidden", height: heightParameter }}
       >
-        <CloseModalBtn onClick={() => onRequestClose()}>
-          <use href={`${sprite}#icon-x`}></use>
-        </CloseModalBtn>
-        <ContentWrapper
-          style={{ overflow: scroll || "hidden", height: heightParameter }}
-        >
-          {" "}
-          {children}
-        </ContentWrapper>
-      </Modal>
-    </div>
+        {" "}
+        {children}
+      </ContentWrapper>
+    </Modal>
   );
 };
 

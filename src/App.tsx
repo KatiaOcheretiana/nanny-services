@@ -23,7 +23,6 @@ function App() {
   const color = useSelector(selectColorTheme);
 
   const isRedTheme = color === "red";
-  // const isGreenTheme = color === "green";
   const isBlueTheme = color === "blue";
 
   return (

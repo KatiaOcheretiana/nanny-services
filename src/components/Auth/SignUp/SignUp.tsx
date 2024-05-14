@@ -14,7 +14,7 @@ import { useState } from "react";
 import sprite from "../../../images/sprite.svg";
 import { SignupSchema } from "../schema";
 import { useDispatch } from "react-redux";
-import { register } from "../../../redux/auth/operations";
+import { getUser, register } from "../../../redux/auth/operations";
 import { AppDispatch } from "../../../redux/store";
 
 export type UserType = {
@@ -36,6 +36,9 @@ export const SignUp = ({ onRequestClose }: SignUpPropsType) => {
   const handleSubmit = (values: UserType) => {
     dispatch(register(values));
     onRequestClose();
+    setTimeout(() => {
+      dispatch(getUser());
+    }, 2000);
   };
 
   return (
