@@ -2,12 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
-// const key = process.env.FIREBASE_KEY;
-
-// console.log(key);
-
 export const firebaseConfig = {
-  apiKey: "AIzaSyBWgTAltPgrrZkzWnoyFNFDlAQgfh9sw78",
+  apiKey: process.env.REACT_APP_FIREBASE_KEY,
   authDomain: "nanniesservices-2c7b7.firebaseapp.com",
   projectId: "nanniesservices-2c7b7",
   storageBucket: "nanniesservices-2c7b7.appspot.com",
