@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nanny-services/static/css/main.7cda0caf.css",
-    "main.js": "/nanny-services/static/js/main.0ced33ae.js",
+    "main.js": "/nanny-services/static/js/main.17c9c562.js",
     "static/js/108.5e735ae0.chunk.js": "/nanny-services/static/js/108.5e735ae0.chunk.js",
     "static/js/802.9b09eef1.chunk.js": "/nanny-services/static/js/802.9b09eef1.chunk.js",
     "static/js/782.ff4316e6.chunk.js": "/nanny-services/static/js/782.ff4316e6.chunk.js",
@@ -12,7 +12,7 @@
     "static/media/sprite.svg": "/nanny-services/static/media/sprite.deb03500c7c3c4fa66ea2e0b169dcd12.svg",
     "index.html": "/nanny-services/index.html",
     "main.7cda0caf.css.map": "/nanny-services/static/css/main.7cda0caf.css.map",
-    "main.0ced33ae.js.map": "/nanny-services/static/js/main.0ced33ae.js.map",
+    "main.17c9c562.js.map": "/nanny-services/static/js/main.17c9c562.js.map",
     "108.5e735ae0.chunk.js.map": "/nanny-services/static/js/108.5e735ae0.chunk.js.map",
     "802.9b09eef1.chunk.js.map": "/nanny-services/static/js/802.9b09eef1.chunk.js.map",
     "782.ff4316e6.chunk.js.map": "/nanny-services/static/js/782.ff4316e6.chunk.js.map",
@@ -21,6 +21,6 @@
   },
   "entrypoints": [
     "static/css/main.7cda0caf.css",
-    "static/js/main.0ced33ae.js"
+    "static/js/main.17c9c562.js"
   ]
 }
